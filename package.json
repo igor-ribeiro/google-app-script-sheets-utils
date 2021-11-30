@@ -1,0 +1,34 @@
+{
+  "name": "google-app-script-sheets-utils",
+  "version": "1.0.0",
+  "description": "Utility functions for Google App Script Sheets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igor-ribeiro/google-app-script-sheets-utils.git"
+  },
+  "keywords": [
+    "GAS",
+    "Sheets",
+    "Google",
+    "App",
+    "Script",
+    "Utils",
+    "GoogleSheets"
+  ],
+  "author": "Igor Ribeiro <igor.ribeiro.plus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igor-ribeiro/google-app-script-sheets-utils/issues"
+  },
+  "homepage": "https://github.com/igor-ribeiro/google-app-script-sheets-utils#readme",
+  "dependencies": {
+    "@google/clasp": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/google-apps-script": "^1.0.41"
+  }
+}
