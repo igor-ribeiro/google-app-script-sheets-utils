@@ -7,17 +7,17 @@ export function rangeToJson<T extends string, Values = Record<T, any>>(
   let header = headerToUse;
 
   for (let i = 0; i < rangeValues.length; i++) {
-    const values = rangeValues[i];
+    const values: any[] = rangeValues[i];
 
     if (i === 0 && header.length === 0) {
-      header = values;
+      header = values as T[];
 
       continue;
     }
 
     json.push(
       values.reduce((item, value, index) => {
-        item[header[index]] = value === "" ? null : value;
+        item[header[index]] = value === '' ? null : value;
 
         return item;
       }, {} as Values)

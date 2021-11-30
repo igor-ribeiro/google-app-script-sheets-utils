@@ -1,8 +1,10 @@
+import { getSheetByNameOrFail } from './get-sheet-by-name-or-fail';
+
 export class SheetForm<T extends string, Values = Record<T, any>> {
   protected sheet: GSheet.Sheet;
   protected range: GSheet.Range;
   protected fields: T[] = [];
-  protected direction: "vertical" | "horizontal";
+  protected direction: 'vertical' | 'horizontal';
 
   constructor({
     sheet,
@@ -20,7 +22,7 @@ export class SheetForm<T extends string, Values = Record<T, any>> {
     const rows = this.range.getNumRows();
     const columns = this.range.getNumColumns();
 
-    this.direction = rows > columns ? "vertical" : "horizontal";
+    this.direction = rows > columns ? 'vertical' : 'horizontal';
   }
 
   values(): Values {
@@ -39,18 +41,18 @@ export class SheetForm<T extends string, Values = Record<T, any>> {
   }
 
   empty() {
-    return Boolean(this.range.getValues().join("")) === false;
+    return Boolean(this.range.getValues().join('')) === false;
   }
 
   set(field: T, value: any) {
     const index =
       this.fields.indexOf(field) +
-      (this.direction === "vertical"
+      (this.direction === 'vertical'
         ? this.range.getRow()
         : this.range.getColumn());
 
     const rangeValue =
-      this.direction === "vertical"
+      this.direction === 'vertical'
         ? [index, this.range.getColumn()]
         : [this.range.getRow(), index];
 

@@ -1,4 +1,8 @@
-export class SheetTable<T extends string, Values = Record<T, any>> {
+import { getSheetByNameOrFail } from './get-sheet-by-name-or-fail';
+import { jsonToSheets } from './json-to-sheets';
+import { rangeToJson } from './range-to-json';
+
+class SheetTable<T extends string, Values = Record<T, any>> {
   protected sheet: GSheet.Sheet;
   protected range: GSheet.Range;
   public fields: T[];
@@ -46,7 +50,7 @@ export class SheetTable<T extends string, Values = Record<T, any>> {
     const values = this.range.getValues();
 
     for (let row = 0; row < values.length; row++) {
-      if (Boolean(values[row].join("")) === false) {
+      if (Boolean(values[row].join('')) === false) {
         return row + this.range.getRow();
       }
     }
