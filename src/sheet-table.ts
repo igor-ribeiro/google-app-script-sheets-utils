@@ -2,7 +2,7 @@ import { getSheetByNameOrFail } from './get-sheet-by-name-or-fail';
 import { jsonToSheets } from './json-to-sheets';
 import { rangeToJson } from './range-to-json';
 
-class SheetTable<T extends string, Values = Record<T, any>> {
+export class SheetTable<T extends string, Values = Record<T, any>> {
   protected sheet: GSheet.Sheet;
   protected range: GSheet.Range;
   public fields: T[];

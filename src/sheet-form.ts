@@ -3,7 +3,7 @@ import { getSheetByNameOrFail } from './get-sheet-by-name-or-fail';
 export class SheetForm<T extends string, Values = Record<T, any>> {
   protected sheet: GSheet.Sheet;
   protected range: GSheet.Range;
-  protected fields: T[] = [];
+  protected fields: ReadonlyArray<T> = [];
   protected direction: 'vertical' | 'horizontal';
 
   constructor({
@@ -13,7 +13,7 @@ export class SheetForm<T extends string, Values = Record<T, any>> {
   }: {
     sheet: string;
     range: string;
-    fields: T[];
+    fields: ReadonlyArray<T>;
   }) {
     this.sheet = getSheetByNameOrFail(sheet);
     this.range = this.sheet.getRange(range);
